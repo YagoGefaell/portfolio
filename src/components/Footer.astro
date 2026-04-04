@@ -1,0 +1,98 @@
+---
+const year = new Date().getFullYear();
+---
+
+<footer class="footer">
+  <div class="container footer-inner">
+    <a href="/" class="footer-logo">
+      <span class="logo-bracket">&lt;</span>YG<span class="logo-bracket">/&gt;</span>
+    </a>
+    <p class="footer-copy">
+      &copy; {year} Yago Gefaell. Built with
+      <a href="https://astro.build" target="_blank" rel="noopener noreferrer">Astro</a>.
+    </p>
+    <a href="#about" class="back-to-top" aria-label="Back to top">
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        aria-hidden="true"
+      >
+        <polyline points="18 15 12 9 6 15"></polyline>
+      </svg>
+    </a>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    border-top: 1px solid var(--color-border);
+    padding: 28px 24px;
+  }
+
+  .footer-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .footer-logo {
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: var(--color-text);
+    font-family: var(--font-mono);
+  }
+
+  .footer-logo:hover {
+    color: var(--color-text);
+  }
+
+  .logo-bracket {
+    color: var(--color-accent);
+  }
+
+  .footer-copy {
+    font-size: 0.88rem;
+    color: var(--color-text-muted);
+  }
+
+  .footer-copy a {
+    color: var(--color-accent-light);
+  }
+
+  .back-to-top {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    color: var(--color-text-muted);
+    transition: background var(--transition), border-color var(--transition), color var(--transition);
+  }
+
+  .back-to-top:hover {
+    background-color: var(--color-surface-2);
+    border-color: var(--color-accent);
+    color: var(--color-text);
+  }
+
+  .back-to-top svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  @media (max-width: 480px) {
+    .footer-inner {
+      flex-direction: column;
+      text-align: center;
+    }
+  }
+</style>
