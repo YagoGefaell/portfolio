@@ -116,25 +116,25 @@ const skills: Skill[] = [
 ];
 ---
 
-<section id="skills">
+<section id="skills" class="px-6 py-20">
   <div class="container">
     <h2 class="section-title">Skills</h2>
     <p class="section-subtitle">Technologies I work with</p>
-    <ul class="skills-grid">
+    <ul style="display: grid; grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); gap: 20px;">
       {
         skills.map((skill) => (
-          <li class="skill-item" style={`--icon-color: ${skill.color}`}>
-            <a href={skill.officialUrl} target="_blank" rel="noopener noreferrer" class="skill-link" aria-label={`Open ${skill.name} official website`}>
-              <div class="skill-icon">
+          <li class="skill-item group cursor-pointer transition-all duration-200" style={`--skill-color: ${skill.color}`}>
+            <a href={skill.officialUrl} target="_blank" rel="noopener noreferrer" class="flex flex-col items-center gap-2.5 p-5" aria-label={`Open ${skill.name} official website`}>
+              <div class="flex h-12 w-12 items-center justify-center transition-transform duration-200 group-hover:scale-110" style={`color: ${skill.color}`}>
                 {skill.iconUrl ? (
                   <img src={skill.iconUrl} alt={`${skill.name} logo`} loading="lazy" />
                 ) : (
-                  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" fill="currentColor">
+                  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" fill="currentColor" class="h-full w-full">
                     <path d={skill.svgPath} />
                   </svg>
                 )}
               </div>
-              <span class="skill-name">{skill.name}</span>
+              <span class="text-center font-mono text-xs font-semibold text-text-muted transition-colors duration-200 group-hover:text-text">{skill.name}</span>
             </a>
           </li>
         ))
@@ -142,76 +142,3 @@ const skills: Skill[] = [
     </ul>
   </div>
 </section>
-
-<style>
-  .skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
-    gap: 20px;
-  }
-
-  .skill-item {
-    padding: 0;
-    background-color: var(--color-surface);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius);
-    transition: transform var(--transition), border-color var(--transition), box-shadow var(--transition);
-    cursor: pointer;
-  }
-
-  .skill-link {
-    color: inherit;
-    text-decoration: none;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-    padding: 24px 12px 20px;
-    width: 100%;
-    height: 100%;
-  }
-
-  .skill-item:hover {
-    transform: translateY(-5px);
-    border-color: var(--icon-color, var(--color-accent));
-    box-shadow: 0 6px 24px color-mix(in srgb, var(--icon-color, var(--color-accent)) 25%, transparent);
-  }
-
-  .skill-icon {
-    width: 48px;
-    height: 48px;
-    color: var(--icon-color, var(--color-accent));
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: transform var(--transition);
-  }
-
-  .skill-item:hover .skill-icon {
-    transform: scale(1.12);
-  }
-
-  .skill-icon svg {
-    width: 100%;
-    height: 100%;
-  }
-
-  .skill-icon img {
-    width: 100%;
-    height: 100%;
-    display: block;
-  }
-
-  .skill-name {
-    font-size: 0.8rem;
-    font-weight: 600;
-    color: var(--color-text-muted);
-    text-align: center;
-    font-family: var(--font-mono);
-    transition: color var(--transition);
-  }
-
-  .skill-item:hover .skill-name {
-    color: var(--color-text);
-  }
-</style>

@@ -1,0 +1,125 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+  }
+
+  body {
+    @apply min-h-screen overflow-x-hidden bg-bg text-text;
+    line-height: 1.6;
+  }
+
+  a {
+    @apply text-accent-light transition-colors;
+    text-decoration: none;
+  }
+
+    main {
+      @apply pt-16;
+    }
+
+  a:hover {
+    @apply text-accent;
+  }
+
+  img {
+    @apply block max-w-full;
+  }
+
+  ul {
+    @apply list-none;
+  }
+
+  section {
+    @apply px-6 py-20;
+  }
+}
+
+@layer components {
+  .container {
+    @apply mx-auto max-w-container;
+  }
+
+  .section-title {
+    font-size: clamp(1.6rem, 4vw, 2.2rem);
+    @apply mb-3 font-bold text-text;
+  }
+
+  .section-subtitle {
+    font-size: 1.05rem;
+    @apply mb-12 text-text-muted;
+  }
+
+  .btn {
+    @apply inline-flex items-center gap-2 rounded-sm px-7 py-3 text-sm font-semibold transition-all duration-200;
+  }
+
+  .btn-primary {
+    @apply bg-accent text-white shadow-lg hover:bg-accent-light hover:shadow-lg hover:-translate-y-0.5;
+    box-shadow: 0 4px 20px rgba(124, 106, 247, 0.35);
+  }
+
+  .btn-primary:hover {
+    box-shadow: 0 6px 28px rgba(124, 106, 247, 0.5);
+  }
+
+  .btn-outline {
+    @apply border-2 border-border bg-transparent text-text transition-all duration-200 hover:border-accent hover:bg-accent/10 hover:text-accent-light hover:-translate-y-0.5;
+  }
+
+  /* Hero name gradient */
+  .hero-name-gradient {
+    @apply bg-gradient-to-r from-text to-accent-light bg-clip-text text-transparent;
+  }
+
+  /* Avatar ring */
+  .avatar-ring {
+    @apply relative z-20 flex h-80 w-80 items-center justify-center overflow-hidden rounded-full bg-gradient-to-br from-accent to-indigo-600 shadow-2xl;
+  }
+
+  .avatar-ring img {
+    @apply h-full w-full object-cover;
+  }
+
+  /* Blobs */
+  .blob {
+    @apply absolute rounded-full opacity-25 blur-3xl;
+  }
+
+  .blob-1 {
+    @apply z-10 h-96 w-96 bg-accent;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .blob-2 {
+    @apply absolute z-10 h-80 w-80 bg-indigo-600;
+    bottom: -10px;
+    right: -5%;
+  }
+
+  /* Skill item with dynamic border color on hover */
+  .skill-item {
+    padding: 8px 12px;
+    background-color: var(--color-surface, #1a1a24);
+    border: 1px solid var(--color-border, #2e2e42);
+    border-radius: 8px;
+    transition: transform 200ms, border-color 200ms, box-shadow 200ms;
+  }
+
+  .skill-item:hover {
+    transform: translateY(-4px);
+    border-color: var(--skill-color);
+    box-shadow: 0 6px 24px color-mix(in srgb, var(--skill-color) 25%, transparent);
+  }
+
+  .skill-item a {
+    height: auto;
+  }
+}
+

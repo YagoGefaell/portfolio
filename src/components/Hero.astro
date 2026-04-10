@@ -3,31 +3,30 @@ import { Image } from 'astro:assets'
 import profilePicture from '../assets/profile-img.jpeg'
 ---
 
-<section class="hero" id="about">
-  <div class="container hero-inner">
-    <div class="hero-text">
-      <p class="hero-greeting">Hi there, I'm</p>
-      <h1 class="hero-name">Yago Gefaell</h1>
-      <h2 class="hero-title">Full Stack Developer</h2>
-      <p class="hero-bio">
+<section class="flex min-h-[calc(100vh-65px)] items-center overflow-x-hidden px-6 py-20" id="about">
+  <div class="container grid grid-cols-1 gap-16 md:grid-cols-2 md:items-center">
+    <div>
+      <p class="mb-2 text-lg font-medium text-accent-light">Hi there, I'm</p>
+      <h1 class="hero-name-gradient mb-2 font-black leading-tight" style="font-size: clamp(2.4rem, 6vw, 4rem);">Yago Gefaell</h1>
+      <h2 class="mb-6 font-medium text-text-muted" style="font-size: clamp(1.1rem, 2.5vw, 1.5rem);">Full Stack Developer</h2>
+      <p class="mb-9 max-w-xl leading-relaxed text-text-muted">
         I build modern web applications with a passion for clean code and great user experiences.
         I enjoy working across the full stack — from interactive frontends with React and Vue
         to robust backends with Java &amp; Spring Boot, all packaged with Docker.
       </p>
-      <div class="hero-actions">
+      <div class="flex flex-wrap gap-4">
         <a href="#projects" class="btn btn-primary">View Projects</a>
         <a href="#contact" class="btn btn-outline">Get in Touch</a>
       </div>
     </div>
-    <div class="hero-graphic" aria-hidden="true">
+    <div class="relative flex items-center justify-center md:h-96" aria-hidden="true">
       <div class="avatar-ring">
         <Image
-          src={profilePicture} 
-          alt="Yago Gefaell picture" 
-          width={320} 
+          src={profilePicture}
+          alt="Yago Gefaell picture"
+          width={320}
           height={320}
-          loading="eager" 
-          class="rounded-full"
+          loading="eager"
         />
       </div>
       <div class="blob blob-1"></div>
@@ -35,190 +34,3 @@ import profilePicture from '../assets/profile-img.jpeg'
     </div>
   </div>
 </section>
-
-<style>
-  .hero {
-    padding: 100px 24px 80px;
-    min-height: calc(100vh - 65px);
-    display: flex;
-    align-items: center;
-    overflow-x: hidden;
-  }
-
-  .hero-inner {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px;
-    align-items: center;
-  }
-
-  .hero-greeting {
-    font-size: 1.1rem;
-    color: var(--color-accent-light);
-    font-weight: 500;
-    margin-bottom: 8px;
-  }
-
-  .hero-name {
-    font-size: clamp(2.4rem, 6vw, 4rem);
-    font-weight: 800;
-    line-height: 1.1;
-    letter-spacing: -1px;
-    background: linear-gradient(135deg, var(--color-text) 0%, var(--color-accent-light) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    margin-bottom: 8px;
-  }
-
-  .hero-title {
-    font-size: clamp(1.1rem, 2.5vw, 1.5rem);
-    font-weight: 500;
-    color: var(--color-text-muted);
-    margin-bottom: 24px;
-  }
-
-  .hero-bio {
-    color: var(--color-text-muted);
-    font-size: 1.05rem;
-    max-width: 500px;
-    line-height: 1.75;
-    margin-bottom: 36px;
-  }
-
-  .hero-actions {
-    display: flex;
-    gap: 16px;
-    flex-wrap: wrap;
-  }
-
-  .btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 12px 28px;
-    border-radius: var(--radius-sm);
-    font-size: 0.95rem;
-    font-weight: 600;
-    transition: transform var(--transition), box-shadow var(--transition), background var(--transition);
-  }
-
-  .btn:hover {
-    transform: translateY(-2px);
-  }
-
-  .btn-primary {
-    background-color: var(--color-accent);
-    color: #fff;
-    box-shadow: 0 4px 20px rgba(124, 106, 247, 0.35);
-  }
-
-  .btn-primary:hover {
-    background-color: var(--color-accent-light);
-    color: #fff;
-    box-shadow: 0 6px 28px rgba(124, 106, 247, 0.5);
-  }
-
-  .btn-outline {
-    border: 1.5px solid var(--color-border);
-    color: var(--color-text);
-    background: transparent;
-  }
-
-  .btn-outline:hover {
-    border-color: var(--color-accent);
-    color: var(--color-accent-light);
-    background: rgba(124, 106, 247, 0.08);
-  }
-
-  /* Avatar graphic */
-  .hero-graphic {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 480px; /* Aumentado de 340px para dar aire al diseño */
-  }
-
-  .avatar-ring {
-    position: relative;
-    z-index: 2;
-    width: 320px;  /* Aumentado de 220px */
-    height: 320px; /* Aumentado de 220px */
-    border-radius: 50%;
-    /* Añadimos overflow hidden por seguridad */
-    overflow: hidden; 
-    background: linear-gradient(135deg, var(--color-accent) 0%, #4f46e5 100%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    /* Sombras más grandes para un objeto más grande */
-    box-shadow: 
-      0 0 80px rgba(124, 106, 247, 0.3), 
-      0 0 0 6px rgba(124, 106, 247, 0.1);
-  }
-
-  .rounded-full {
-    width: 100%;
-    height: 100%;
-    aspect-ratio: 1 / 1; 
-    object-fit: cover;
-    object-position: center;
-    /* Eliminamos el border-radius de aquí porque el padre ya tiene overflow:hidden */
-  }
-
-  .blob {
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(50px); /* Un poco más de desenfoque para los blobs grandes */
-    opacity: 0.25;
-    z-index: 1;
-  }
-
-  .blob-1 {
-    width: 420px; /* Aumentado de 280px */
-    height: 420px;
-    background: var(--color-accent);
-    top: -20px;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-
-  .blob-2 {
-    width: 350px; /* Aumentado de 200px */
-    height: 350px;
-    background: #4f46e5;
-    bottom: -10px;
-    right: -5%; /* Movido un poco más al borde */
-  }
-
-  @media (max-width: 768px) {
-    .hero-inner {
-      grid-template-columns: 1fr;
-      text-align: center;
-    }
-
-    .hero-bio {
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .hero-actions {
-      justify-content: center;
-    }
-
-    .hero-graphic {
-      height: 220px;
-      order: -1;
-    }
-
-    .avatar-ring {
-      width: 160px;
-      height: 160px;
-    }
-
-    .avatar-initials {
-      font-size: 2.8rem;
-    }
-  }
-</style>
