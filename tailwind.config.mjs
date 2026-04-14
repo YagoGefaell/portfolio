@@ -14,8 +14,8 @@ export default {
         border: '#2e2e42',
       },
       fontFamily: {
-        sans: ["'Segoe UI'", 'system-ui', '-apple-system', 'sans-serif'],
-        mono: ["'Cascadia Code'", "'Fira Code'", 'monospace'],
+        sans: ['"Inter"', 'system-ui', 'sans-serif'],
+        mono: ['"JetBrains Mono"', '"Fira Code"', 'monospace'],
       },
       borderRadius: {
         DEFAULT: '12px',
