@@ -118,12 +118,12 @@ const skills: Skill[] = [
 
 <section id="skills" class="px-6 py-20">
   <div class="container">
-    <h2 class="section-title">Skills</h2>
-    <p class="section-subtitle">Technologies I work with</p>
+    <h2 class="section-title reveal reveal-up">Skills</h2>
+    <p class="section-subtitle reveal reveal-up" style="--reveal-delay: 140ms;">Technologies I work with</p>
     <ul style="display: grid; grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); gap: 20px;">
       {
-        skills.map((skill) => (
-          <li class="skill-item group cursor-pointer transition-all duration-200" style={`--skill-color: ${skill.color}`}>
+        skills.map((skill, index) => (
+          <li class="skill-item reveal reveal-up group cursor-pointer transition-all duration-200" style={`--skill-color: ${skill.color}; --reveal-delay: ${220 + index * 140}ms`}>
             <a href={skill.officialUrl} target="_blank" rel="noopener noreferrer" class="flex flex-col items-center gap-2.5 p-5" aria-label={`Open ${skill.name} official website`}>
               <div class="flex h-12 w-12 items-center justify-center transition-transform duration-200 group-hover:scale-110" style={`color: ${skill.color}`}>
                 {skill.iconUrl ? (

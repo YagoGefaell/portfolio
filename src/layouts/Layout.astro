@@ -23,5 +23,29 @@ const { title, description = 'Yago Gefaell – Full Stack Developer Portfolio' }
   </head>
   <body id="top">
     <slot />
+    <script is:inline>
+      const revealElements = document.querySelectorAll('.reveal');
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      if (reduceMotion || !('IntersectionObserver' in window)) {
+        revealElements.forEach((element) => element.classList.add('reveal-visible'));
+      } else {
+        const observer = new IntersectionObserver(
+          (entries, currentObserver) => {
+            entries.forEach((entry) => {
+              if (!entry.isIntersecting) return;
+              entry.target.classList.add('reveal-visible');
+              currentObserver.unobserve(entry.target);
+            });
+          },
+          {
+            threshold: 0.14,
+            rootMargin: '0px 0px -8% 0px',
+          }
+        );
+
+        revealElements.forEach((element) => observer.observe(element));
+      }
+    </script>
   </body>
 </html>

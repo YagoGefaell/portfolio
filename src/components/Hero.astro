@@ -6,20 +6,20 @@ import profilePicture from '../assets/profile-img.jpeg'
 <section class="flex min-h-[calc(100vh-65px)] items-center overflow-x-hidden px-6 py-20" id="about">
   <div class="container grid grid-cols-1 gap-16 md:grid-cols-2 md:items-center">
     <div>
-      <p class="mb-2 text-lg font-medium text-accent-light">Hi there, I'm</p>
-      <h1 class="hero-name-gradient mb-2 font-black leading-tight" style="font-size: clamp(2.4rem, 6vw, 4rem);">Yago Gefaell</h1>
-      <h2 class="mb-6 font-mono font-medium text-text-muted" style="font-size: clamp(1.1rem, 2.5vw, 1.5rem);">Full Stack Developer</h2>
-      <p class="mb-9 max-w-xl leading-relaxed text-text-muted">
+      <p class="reveal reveal-up mb-2 text-lg font-medium text-accent-light">Hi there, I'm</p>
+      <h1 class="hero-name-gradient reveal reveal-up mb-2 font-black leading-tight" style="font-size: clamp(2.4rem, 6vw, 4rem); --reveal-delay: 140ms;">Yago Gefaell</h1>
+      <h2 class="reveal reveal-up mb-6 font-mono font-medium text-text-muted" style="font-size: clamp(1.1rem, 2.5vw, 1.5rem); --reveal-delay: 260ms;">Full Stack Developer</h2>
+      <p class="reveal reveal-up mb-9 max-w-xl leading-relaxed text-text-muted" style="--reveal-delay: 420ms;">
         I build modern web applications with a passion for clean code and great user experiences.
         I enjoy working across the full stack — from interactive frontends with React and Vue
         to robust backends with Java &amp; Spring Boot, all packaged with Docker.
       </p>
-      <div class="flex flex-wrap gap-4">
+      <div class="reveal reveal-up flex flex-wrap gap-4" style="--reveal-delay: 560ms;">
         <a href="#projects" class="btn btn-primary font-mono">View Projects</a>
         <a href="#contact" class="btn btn-outline font-mono">Get in Touch</a>
       </div>
     </div>
-    <div class="relative flex items-center justify-center md:h-96" aria-hidden="true">
+    <div class="reveal reveal-up relative flex items-center justify-center md:h-96" style="--reveal-delay: 220ms;" aria-hidden="true">
       <div class="avatar-ring">
         <Image
           src={profilePicture}
